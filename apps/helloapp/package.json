@@ -1,0 +1,14 @@
+{
+  "name": "helloapp",
+  "version": "1.0.0",
+  "description": "A sample Alexa app",
+  "main": "index.js",
+  "author": "Soumitra Nath",
+  "license": "MIT",
+  "alexa": {
+    "applicationId":"13325345fdfsdrrq4ewtvytr"
+  },
+  "dependencies": {
+    "alexa-app": "^2.1.0"
+  }
+}
