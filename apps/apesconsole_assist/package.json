@@ -1,0 +1,14 @@
+{
+  "name": "apesconsole_assist",
+  "version": "1.0.0",
+  "description": "Alexa Contact Manager",
+  "main": "index.js",
+  "author": "Soumitra Nath",
+  "license": "MIT",
+  "alexa": {
+    "applicationId":"1343gdfg323rewgret"
+  },
+  "dependencies": {
+    "alexa-app": "^2.1.0"
+  }
+}
