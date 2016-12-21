@@ -1,19 +1,23 @@
+/*
+	Ape's Console | Alexa 
+*/
 var AlexaAppServer = require('alexa-app-server');
 
 AlexaAppServer.start( {
-    server_root:__dirname,     // Path to root 
-    public_html:"public",      // Static content 
-    app_dir:"apps",       // Where alexa-app modules are stored 
-    app_root:"/",  
-	port:3001
+    server_root:__dirname,
+    public_html: 'public', 
+    app_dir: 'apps',      
+    app_root: '/',  
+	port: 3001
 	// Use preRequest to load user data on each request and add it to the request json.
 	// In reality, this data would come from a db or files, etc.
 	,preRequest: function(json,req,res) {
-		console.log("preRequest fired");
-		json.userDetails = { "name":"Bob Smith" };
+		console.log('preRequest fired');
+		json.userDetails = { 'name':'Ape\'s Console' };
 	}
 	// Add a dummy attribute to the response
 	,postRequest: function(json,req,res) {
-		json.dummy = "text";
+		console.log('postRequest fired');
+		json.dummy = 'text';
 	}
 } );
