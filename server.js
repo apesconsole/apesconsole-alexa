@@ -4,6 +4,10 @@
 var AlexaAppServer = require('alexa-app-server');
 
 AlexaAppServer.start( {
+    httpsPort:443,
+    httpsEnabled:true,
+    privateKey:'private-key.pem',
+    certificate:'cert.cer',
     server_root:__dirname,
     public_html: 'public', 
     app_dir: 'apps',      
