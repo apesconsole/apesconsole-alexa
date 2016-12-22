@@ -4,7 +4,7 @@
 // Allow this module to be reloaded by hotswap when changed
 module.change_code = 1;
 var alexa = require('alexa-app');
-var url = require("url");
+
 /*
 app.dictionary = {
   "names": ["Sam", "Sai"]
@@ -93,7 +93,7 @@ app.intent('goodNightIntent', {
       "NAME": "LITERAL"
     },
     "utterances": [
-	  "{This is|It's} {Sam|Sai|NAME}. Good night.",
+	  "{This is|It's} {Sam|Sai|NAME} Good night.",
 	  "Good Night"
     ]
   }, function(req, res) {
@@ -122,7 +122,7 @@ app.intent('talkToMeIntent', {
       "NAME": "LITERAL"
     },
     "utterances": [
-	  "{This is|It's} {Sam|Sai|NAME}. {Talk to me|Talk to me please|Please say something|Say something}"
+	  "{This is|It's} {Sam|Sai|NAME} {Talk to me|Talk to me please|Please say something|Say something}"
     ]
   }, function(req, res) {
 	var message = ''; 
