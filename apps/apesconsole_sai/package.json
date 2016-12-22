@@ -1,0 +1,14 @@
+{
+  "name": "apesconsole_sai",
+  "version": "1.0.0",
+  "description": "Alexa Assist for Sai",
+  "main": "index.js",
+  "author": "Soumitra Nath",
+  "license": "MIT",
+  "alexa": {
+    "applicationId":"1343gdfg323rew2edsgret"
+  },
+  "dependencies": {
+    "alexa-app": "^2.1.0"
+  }
+}

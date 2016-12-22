@@ -1,12 +1,12 @@
 {
-  "name": "apesconsole_assist",
+  "name": "apesconsole_sam",
   "version": "1.0.0",
-  "description": "Alexa Contact Manager",
+  "description": "Alexa Sam's Assist",
   "main": "index.js",
   "author": "Soumitra Nath",
   "license": "MIT",
   "alexa": {
-    "applicationId":"1343gdfg323rewgret"
+    "applicationId":"1343gdfg32s3rewgret"
   },
   "dependencies": {
     "alexa-app": "^2.1.0"

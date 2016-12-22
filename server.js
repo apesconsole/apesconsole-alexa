@@ -9,7 +9,7 @@ AlexaAppServer.start( {
     public_html: 'public', 
     app_dir: 'apps',      
     app_root: '/',  
-	port: process.env.PORT || 80
+	port: process.env.PORT || 3001
 	// Use preRequest to load user data on each request and add it to the request json.
 	// In reality, this data would come from a db or files, etc.
 	,preRequest: function(json,req,res) {
