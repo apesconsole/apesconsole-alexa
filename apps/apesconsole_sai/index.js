@@ -17,9 +17,8 @@ var app = new alexa.app('apesconsole_sai','saiAssist');
 
 var processHer = function(param){
 	var date = new Date();
-	moment(date).tz("America/Chicago").format();
-	console.log(date.getHours());
-	var hours = date.getHours();
+	var hours = moment(date).tz("America/Chicago").format("hh");
+	console.log('This is the Hour- >' + hours);
 	if('greetIntent' == param.service){
 		if(hours >= 01 && hours <= 03){
 			return 'Hey Sai ! Is everything Okey ?';
@@ -31,6 +30,8 @@ var processHer = function(param){
 			return 'Hello Sai ! How was your day ?';
 		} else if(hours >= 18 && hours <= 21){
 			return 'Hello Sai ! Its almost bed time. Do you want to set any alarm for tomorrow ?';
+		} else if(hours > 21){
+			return 'Hello Sai ! Can\'t get sleep ? Do you want me to play some good music ?';
 		}
 	} else if('goodNightIntent' == param.service){
 		if(hours <= 18 && hours >= 12){
@@ -52,9 +53,7 @@ app.intent('goodNightIntent', {
     ]
   }, function(req, res) {
 	var date = new Date();
-	moment(date).tz("America/Chicago").format();
-	console.log(date.getHours());
-	var hours = date.getHours();
+	var hours = moment(date).tz("America/Chicago").format("hh");
 	var message = '';
 	if(hours >= 18){
 		message = 'Good Night ! I am there, let me know anything you want.';
