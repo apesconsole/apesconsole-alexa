@@ -47,6 +47,34 @@ app.launch(function(req, res) {
 	res.say(processHer({service: 'greetIntent'}));
 });
 
+app.intent('suggestClothesIntent', {
+    "utterances": [
+	  "{What shall I Wear ? | What shall I wear to office today ? | What to wear ?}"
+    ]
+  }, function(req, res) {
+	var date = new Date();
+	var hours = moment(date).tz("America/Chicago").format("HH");
+	var dd = moment(date).tz("America/Chicago");
+	var day = dd.day();
+	var message = '';
+	if(hours > 07 && hours <= 11) {
+		if(day <5) {
+			message = 'You look great in trousers and of course a sleeveless top will just do great for office';
+		} else if(day == 5) {
+			message = 'It\'s Friday ! Get the blue pair of jeans and a cool T';
+		}
+	} else if(hours > 11 && hours <= 17) {
+		if(day < 5) {
+			message = 'Since you are heading for lunch, I would suggest wear something casual and light';
+		} else if(day > 5 && hours <= 13) {
+			message = 'It\'s weekend Sweety. Since you are heading for lunch, I would suggest wear something casual and light';
+		} else if(day > 5 && hours > 13 && hours < 17) {
+			message = 'It\'s weekend Sweety. I would suggest wear something casual and light';
+		}
+	}
+	res.say(message);
+});
+
 app.intent('goodNightIntent', {
     "utterances": [
 	  "Good Night"
