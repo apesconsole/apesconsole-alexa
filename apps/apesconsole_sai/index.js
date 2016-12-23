@@ -53,7 +53,7 @@ app.intent('goodNightIntent', {
     ]
   }, function(req, res) {
 	var date = new Date();
-	var hours = moment(date).tz("America/Chicago").format("hh");
+	var hours = moment(date).tz("America/Chicago").format("HH");
 	var message = '';
 	if(hours >= 18){
 		message = 'Good Night ! I am there, let me know anything you want.';
