@@ -17,7 +17,7 @@ var app = new alexa.app('apesconsole_sai','saiAssist');
 
 var processHer = function(param){
 	var date = new Date();
-	var hours = moment(date).tz("America/Chicago").format("hh");
+	var hours = moment(date).tz("America/Chicago").format("HH");
 	console.log('This is the Hour- >' + hours);
 	if('greetIntent' == param.service){
 		if(hours >= 01 && hours <= 03){
