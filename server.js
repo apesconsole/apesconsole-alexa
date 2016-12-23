@@ -2,7 +2,7 @@
 	Ape's Console | Alexa 
 */
 var AlexaAppServer = require('alexa-app-server');
-process.env.TZ = 'Central Standard Time / Central Time ';
+	
 AlexaAppServer.start( {
     httpsEnabled:false,
     server_root:__dirname,

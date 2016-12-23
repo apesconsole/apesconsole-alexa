@@ -4,6 +4,7 @@
 // Allow this module to be reloaded by hotswap when changed
 module.change_code = 1;
 var alexa = require('alexa-app');
+var moment = require('moment-timezone');
 
 /*
 app.dictionary = {
@@ -13,8 +14,12 @@ app.dictionary = {
 
 // Define an alexa-app
 var app = new alexa.app('apesconsole_sai','saiAssist');
+
 var processHer = function(param){
-	var hours = new Date().getHours();
+	var date = new Date();
+	moment(date).tz("America/Chicago").format();
+	console.log(date.getHours());
+	var hours = date.getHours();
 	if('greetIntent' == param.service){
 		if(hours >= 01 && hours <= 03){
 			return 'Hey Sai ! Is everything Okey ?';
@@ -46,7 +51,10 @@ app.intent('goodNightIntent', {
 	  "Good Night"
     ]
   }, function(req, res) {
-	var hours = new Date().getHours();
+	var date = new Date();
+	moment(date).tz("America/Chicago").format();
+	console.log(date.getHours());
+	var hours = date.getHours();
 	var message = '';
 	if(hours >= 18){
 		message = 'Good Night ! I am there, let me know anything you want.';
