@@ -5,7 +5,12 @@
 module.change_code = 1;
 var alexa = require('alexa-app');
 var moment = require('moment-timezone');
-
+var http = require('http');
+var options = {
+  host: '192.168.1.82',
+  port: 8080,
+  path: ''
+};
 /*
 app.dictionary = {
   "names": ["Sam", "Sai"]
@@ -41,6 +46,10 @@ var processHer = function(param){
 		}	
 	} else if('talkToMeIntent' == param.service){
 		return 'Honey. You look amazing and just you wait till Sam sees you.';
+	} else if('switchLightOffIntent' == param.service){
+		return 'Sure';
+	} else if('switchLightOnIntent' == param.service){
+		return 'Sure';
 	}
 }
 app.launch(function(req, res) {
@@ -104,6 +113,50 @@ app.intent('talkToMeIntent', {
 	res.say(message);
 });
 
+app.intent('switchLightOffIntent', {
+    "utterances": [
+	  "{Switch Off lights|Turn off lights|Turn lights off}"
+    ]
+  }, function(req, res) {
+	var message = ''; 
+	message = processHer({service: 'switchLightOffIntent'}); 
+	options.path = '/apesconsole/click.json?deviceId=mstrm-light1&requestState=false';
+	http.get(options, function(response){
+		var str = '';
+		response.on('data', function (chunk) {
+			str += chunk;
+		});
+		response.on('end', function () {
+			console.log(str);
+			res.say(message);
+		});
+	}).on("error", function(e){
+	  console.log("Got error: " + e.message);
+	});	
+	res.say(message);
+});
+
+app.intent('switchLightOnIntent', {
+    "utterances": [
+	  "{Switch On lights|Turn on lights|Turn lights on}"
+    ]
+  }, function(req, res) {
+	var message = ''; 
+	message = processHer({service: 'switchLightOnIntent'}); 
+	options.path = '/apesconsole/click.json?deviceId=mstrm-light1&requestState=true';
+	http.get(options, function(response){
+		var str = '';
+		response.on('data', function (chunk) {
+			str += chunk;
+		});
+		response.on('end', function () {
+			console.log(str);
+			res.say(message);
+		});
+	}).on("error", function(e){
+	  console.log("Got error: " + e.message);
+	});
+});
 
 module.exports = app;
 
